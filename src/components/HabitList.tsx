@@ -194,11 +194,14 @@ export const HabitList: React.FC<HabitListProps> = ({ onAnalyticsClick }) => {
 
         {habits.length === 0 && !isEditing && (
           <div className="text-center py-12">
-            <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-muted flex items-center justify-center">
+            <button
+              onClick={() => setIsEditing(true)}
+              className="w-16 h-16 mx-auto mb-4 rounded-full bg-muted flex items-center justify-center hover:bg-muted/80 transition-colors active:scale-95 transition-transform"
+            >
               <Plus className="w-8 h-8 text-muted-foreground" />
-            </div>
+            </button>
             <h3 className="text-lg font-medium text-foreground mb-2">No habits yet</h3>
-            <p className="text-muted-foreground mb-4">Tap the edit button to add your first habit</p>
+            <p className="text-muted-foreground mb-4">Tap the plus button to add your first habit</p>
           </div>
         )}
       </div>
