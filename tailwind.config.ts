@@ -19,9 +19,12 @@ export default {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        surface: "hsl(var(--surface))",
+        "surface-secondary": "hsl(var(--surface-secondary))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          hover: "hsl(var(--primary-hover))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -46,6 +49,13 @@ export default {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+          border: "hsl(var(--card-border))",
+        },
+        ios: {
+          blue: "hsl(var(--ios-blue))",
+          "blue-dark": "hsl(var(--ios-blue-dark))",
+          green: "hsl(var(--ios-green))",
+          red: "hsl(var(--ios-red))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",

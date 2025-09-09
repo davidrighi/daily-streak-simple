@@ -2,41 +2,60 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* iOS-inspired minimalist design system */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* iOS-style backgrounds */
+    --background: 0 0% 98%;
+    --foreground: 0 0% 15%;
+    --surface: 0 0% 100%;
+    --surface-secondary: 0 0% 96%;
 
+    /* Card system */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 0 0% 15%;
+    --card-border: 0 0% 92%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* iOS blue accent */
+    --ios-blue: 213 94% 68%;
+    --ios-blue-dark: 213 94% 58%;
+    --ios-green: 122 80% 50%;
+    --ios-red: 0 90% 65%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary system */
+    --primary: 213 94% 68%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 213 94% 58%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary system */
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 25%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted system */
+    --muted: 0 0% 94%;
+    --muted-foreground: 0 0% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent system */
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 15%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Destructive */
+    --destructive: 0 90% 65%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Borders and inputs */
+    --border: 0 0% 90%;
+    --input: 0 0% 96%;
+    --ring: 213 94% 68%;
 
-    --radius: 0.5rem;
+    /* Border radius - iOS style */
+    --radius: 0.75rem;
+
+    /* Shadows - iOS style */
+    --shadow-sm: 0 2px 8px -2px hsl(0 0% 0% / 0.05);
+    --shadow-md: 0 4px 16px -4px hsl(0 0% 0% / 0.08);
+    --shadow-lg: 0 8px 32px -8px hsl(0 0% 0% / 0.12);
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +119,55 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
   }
+}
+
+@layer components {
+  /* iOS-style animations */
+  .habit-check-animation {
+    @apply transition-all duration-300 ease-out;
+  }
+  
+  .habit-check-animation:checked {
+    @apply scale-110;
+    animation: checkmark 0.3s ease-out;
+  }
+  
+  .ios-card {
+    @apply bg-card border border-card-border rounded-2xl shadow-sm;
+  }
+  
+  .ios-button {
+    @apply bg-primary text-primary-foreground rounded-xl px-4 py-2 text-sm font-medium 
+           transition-all duration-200 ease-out active:scale-95 
+           hover:bg-primary-hover shadow-sm;
+  }
+  
+  .ios-input {
+    @apply bg-input border-0 rounded-xl px-4 py-3 text-base 
+           placeholder:text-muted-foreground focus:ring-2 focus:ring-primary 
+           transition-all duration-200 ease-out;
+  }
+}
+
+@keyframes checkmark {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1.1); }
+}
+
+@keyframes slideIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(10px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+.slide-in {
+  animation: slideIn 0.3s ease-out;
 }
